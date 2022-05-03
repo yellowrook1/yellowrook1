@@ -1,11 +1,13 @@
-### Hi there ```mermaid
+### Hi there 
+```mermaid
   graph TD;
       A-->B;
       A-->C;
       B-->D;
-      C-->D;
 ```
-- [ ] 1
+- [ ] #1
+- [x] https://github.com/yellowrook1/yellowrook1/issues/1
+- [ ] ps_a
 p
 ```mermaid
   graph TD;
