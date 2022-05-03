@@ -6,7 +6,7 @@
       B-->D;
 ```
 - [ ] #1
-- [x] https://github.com/yellowrook1/yellowrook1/issues/1
+- [x] https://github.com/XQLYM/-img-/issues/31
 - [ ] ps_a
 p
 ```mermaid
