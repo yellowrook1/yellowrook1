@@ -1,7 +1,7 @@
 ### Hi there 
 <img src="https://gooogle.cA" alt="j">
 
-```mermaid
+```mermaida
   graph TD;
       A-->B;
       A-->C;
