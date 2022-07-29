@@ -3,7 +3,7 @@
 
 ```mermaid
   graph TD;
-      A-->B;
+      A-->B;s
       A-->C;
       B-->D;
       
