@@ -1,11 +1,8 @@
 testa
 a
 <img src="x" onerror=alert(1)>
-               #1
-
-                           <a href="/a">
-                           #1
-                           #31
+      #1
+<a href="/a"></a> #1 #31
 
 
 ```mermaid
