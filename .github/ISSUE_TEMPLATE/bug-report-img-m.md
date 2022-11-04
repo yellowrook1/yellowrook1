@@ -1,5 +1,5 @@
 ---
-name: Bug report<img>
+name: Bug report<img>m
 about: Create a report to help us imp<img>rove
 title: ''
 labels: ''
