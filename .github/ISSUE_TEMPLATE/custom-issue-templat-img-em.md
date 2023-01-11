@@ -3,7 +3,7 @@ name: Custom issue templat<img>em
 about: Describe this issue template's purpose here.j<img>
 title: "n"
 labels: bug
-assignees: yellowrook1
+assignees: yelloawerae<img>wrook1
 
 ---
 
