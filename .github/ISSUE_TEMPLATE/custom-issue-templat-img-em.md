@@ -3,9 +3,11 @@ name: Custom issue templat<img>em
 about: Describe this issue template's purpose here.j<img>
 title: "n"
 labels: bug
-assignees: yelloawerae<img>wrook1
+assignees: yelloaw"erae<img>wrook1
 
 ---
+
+"
 
 m,,,&lt;img&gt;<img src=x onerror=alert(1)><script>alert(10)</script>
 ```[tasklist]
