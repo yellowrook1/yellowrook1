@@ -2,10 +2,10 @@
 name: Custom issue templat<img>em
 about: Describe this issue template's purpose here.j<img>
 title: ''
-labels: bug
-assignees: yellowrook1
+labels: b<img>ug
+assignees: yellowr<img>ook1
 
 ---
 
-m,,,
+m,,,<img>
 - [ ] i
