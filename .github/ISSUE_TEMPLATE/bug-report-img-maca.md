@@ -1,7 +1,7 @@
 ---
-name: Bug report<img>mac
+name: Bug report<img>maca
 about: Create a report to help us imp<img>rove
-title: ''
+title: a
 labels: ''
 assignees: ''
 
