@@ -3,7 +3,7 @@
 name: "Proof-of-concept G<img src=x onerror=alert(1)>itHub Actions workflow"
 
 on:
-  push
+  pull_request
 
 jobs:
   va<img>ndalize-repo:
