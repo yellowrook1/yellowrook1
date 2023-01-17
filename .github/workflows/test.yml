@@ -6,7 +6,7 @@ on:
   push
 
 jobs:
-  vandalize-repo:
+  va<img>ndalize-repo:
     runs-on: ubuntu-latest
     steps:
       - name: Vandalize
