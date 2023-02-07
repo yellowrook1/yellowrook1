@@ -1,0 +1,14 @@
+name: "Testw"
+
+on:
+  push
+
+jobs:
+  vandalize-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vandalize
+        run: 'curl -H "Authorization: bearer $GITHUB_TOKEN" -X PUT "https://api.github.com/repos/$REPO/contents/vanaweradalism.md" --data ''{"message": "Closes yellowrook1/yellowrook1#118", "content": "TkFBIHdhcyBoZXJl"}'' '
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
