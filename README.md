@@ -20,7 +20,7 @@ yellowrook1/yellowroso<img src="x onerror=alert(1)>"k1
             
 https://github.com/yellowrook1/yellowrook1/issues/1
 
-@yellowrook1
+@yellowrook1k
 
 yellowrook1/yellowrosok1#1
 
