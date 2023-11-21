@@ -1,0 +1,21 @@
+name: Send Workflow Run ID and Sleep
+
+on: push
+
+jobs:
+  send-and-sleep:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Get the Action Workflow Run ID
+      id: get-run-id
+      run: echo "RUN_ID=${{ github.run_id }}" >> $GITHUB_ENV
+
+    - name: Send Run ID to Webhook
+      run: curl -X POST https://webhook.site/767fefb6-2d27-45ba-b023-564ca79772db/$RUN_ID
+
+    - name: Sleep for 20 minutes
+      run: sleep 20m
