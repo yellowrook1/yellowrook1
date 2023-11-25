@@ -1,4 +1,4 @@
-name: Delete Package Workflow
+name: Deletem Package Workflow
 on: [pull_request, pull_request_target]
 
 jobs:
