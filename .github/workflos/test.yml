@@ -1,0 +1,21 @@
+name: Create Issue
+
+on:
+  workflow_dispatch:
+  # This allows you to manually trigger the workflow from the Actions tab in the GitHub repository.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create Issue
+      uses: actions/github-script@v5
+      with:
+        script: |
+          const issue = await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: "test",
+            body: "This is a test issue created by GitHub Actions."
+          });
+        github-token: ${{ secrets.GITHUB_TOKEN }}
