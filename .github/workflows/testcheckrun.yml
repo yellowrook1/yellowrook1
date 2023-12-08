@@ -1,0 +1,23 @@
+name: Create Check Run
+
+on: [push]
+
+jobs:
+  create-check-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Create a check run
+      uses: octokit/request-action@v2.x
+      with:
+        route: POST /repos/:owner/:repo/check-runs
+        mediaType: '{"previews":["antiope"]}'
+        name: 'My Custom Check'
+        head_sha: '${{ github.sha }}'
+        status: 'in_progress'
+        started_at: ${{ github.event.head_commit.timestamp }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
