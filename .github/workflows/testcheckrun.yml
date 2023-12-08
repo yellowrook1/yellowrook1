@@ -13,7 +13,7 @@ jobs:
     - name: Create a check run
       uses: octokit/request-action@v2.x
       with:
-        route: POST /repos/:owner/:repo/check-runs
+        route: POST /repos/yellowrook1/yellowrook1/check-runs
         mediaType: '{"previews":["antiope"]}'
         name: 'My Custom Check'
         head_sha: '${{ github.sha }}'
