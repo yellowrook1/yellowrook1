@@ -1,4 +1,4 @@
-.name: Webhook GET Request Workflow
+name: Webhook GET Request Workflow
 
 on: [push] # or any other event
 
