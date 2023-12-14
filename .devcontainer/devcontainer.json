@@ -1,0 +1,13 @@
+{
+  "customizations": {
+    "codespaces": {
+      "repositories": {
+        "yellowrook1/yellowrook1": {
+          "permissions": {
+            "administration": "write"
+          }
+        }
+      }
+    }
+  }
+}

