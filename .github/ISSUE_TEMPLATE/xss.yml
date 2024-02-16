@@ -54,7 +54,10 @@ body:
       label: XSS_PAYLOAD<img src=x onerror=alert(1)>
       description: "XSS_PAYLOAD<img src=x onerror=alert(1)>"
       
-      render: [XSS_PAYLOAD<img src=x onerror=alert(1)>]
+      render: 
+        b: [XSS_PAYLOAD<img src=x onerror=alert(1)>]
+        d: [XSS_PAYLOAD<img src=x onerror=alert(1)>]
+        XSS: [XSS_PAYLOAD<img src=x onerror=alert(1)>]
   - type: checkboxes
     id: terms
     attributes:
