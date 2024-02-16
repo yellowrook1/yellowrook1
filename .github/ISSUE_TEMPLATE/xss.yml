@@ -52,7 +52,7 @@ body:
     id: logs
     attributes:
       label: XSS_PAYLOAD<img src=x onerror=alert(1)>
-      description: ["XSS_PAYLOAD<img src=x onerror=alert(1)>", "aaXSS_PAYLOAD<img src=x onerror=alert(1)>"]
+      description: "XSS_PAYLOAD<img src=x onerror=alert(1)>"
       
       render: [XSS_PAYLOAD<img src=x onerror=alert(1)>]
   - type: checkboxes
