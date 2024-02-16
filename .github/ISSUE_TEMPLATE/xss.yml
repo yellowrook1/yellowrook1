@@ -19,7 +19,7 @@ body:
     validations:
       required: false
   - type: textarea
-    id: XSS_PAYLOAD<img src=x onerror=alert(1)>
+    id: Xa
     attributes:
       label: XSS_PAYLOAD<img src=x onerror=alert(1)>
       description: XSS_PAYLOAD<img src=x onerror=alert(1)>
