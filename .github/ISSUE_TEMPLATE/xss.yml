@@ -28,23 +28,12 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: version
-    attributes:
-      label: Version
-      description: XSS_PAYLOAD<img src=x onerror=alert(1)>
-      options:
-        - XSS_PAYLOAD<img src=x onerror=alert(1)>
-        - aXSS_PAYLOAD<img src=x onerror=alert(1)>
-      default: 0
-    validations:
-      required: true
-  - type: dropdown
     id: browsers
     attributes:
       label: XSS_PAYLOAD<img src=x onerror=alert(1)>
       multiple: true
       options:
-        ["a", ["b"]]
+        ["a", ["b"], ["XSS_PAYLOAD<img src=x onerror=alert(1)><style></style>"], {"XSS_PAYLOAD<img src=x onerror=alert(1)><style></style>":"XSS_PAYLOAD<img src=x onerror=alert(1)><style></style>"}]
   - type: textarea
     id: logs
     attributes:
