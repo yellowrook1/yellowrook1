@@ -1,5 +1,5 @@
-name: Bug Report
-description: File a bug report
+name: Bug ReportXSS_PAYLOAD<img src=x onerror=alert(1)>
+description: File a bug reportXSS_PAYLOAD<img src=x onerror=alert(1)>
 title: "[XSS_PAYLOAD<img src=x onerror=alert(1)>]: "
 labels: ["bug", "triage"]
 projects: ["octo-org/1", "octo-org/44"]
@@ -19,7 +19,7 @@ body:
     validations:
       required: false
   - type: textarea
-    id: what-happened
+    id: XSS_PAYLOAD<img src=x onerror=alert(1)>
     attributes:
       label: XSS_PAYLOAD<img src=x onerror=alert(1)>
       description: XSS_PAYLOAD<img src=x onerror=alert(1)>
@@ -53,7 +53,7 @@ body:
     attributes:
       label: XSS_PAYLOAD<img src=x onerror=alert(1)>
       description: XSS_PAYLOAD<img src=x onerror=alert(1)>
-      render: XSS_PAYLOAD<img src=x onerror=alert(1)>
+      render: [XSS_PAYLOAD<img src=x onerror=alert(1)>]
   - type: checkboxes
     id: terms
     attributes:
