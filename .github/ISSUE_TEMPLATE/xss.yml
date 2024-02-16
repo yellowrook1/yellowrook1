@@ -15,7 +15,7 @@ body:
     attributes:
       label: XSS_PAYLOAD<img src=x onerror=alert(1)>
       description: XSS_PAYLOAD<img src=x onerror=alert(1)>
-      placeholder:XSS_PAYLOAD<img src=x onerror=alert(1)>
+      placeholder: XSS_PAYLOAD<img src=x onerror=alert(1)>
     validations:
       required: false
   - type: textarea
