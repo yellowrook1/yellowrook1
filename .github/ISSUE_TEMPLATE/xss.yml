@@ -34,7 +34,7 @@ body:
       description: XSS_PAYLOAD<img src=x onerror=alert(1)>
       options:
         - XSS_PAYLOAD<img src=x onerror=alert(1)>
-        - XSS_PAYLOAD<img src=x onerror=alert(1)>
+        - aXSS_PAYLOAD<img src=x onerror=alert(1)>
       default: 0
     validations:
       required: true
