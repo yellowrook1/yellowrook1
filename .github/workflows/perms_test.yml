@@ -4,7 +4,8 @@ on: [pull_request]
 
 jobs:
   output-token:
-    permissions: write-all
+    permissions: 
+      repository-advisories: write
   
     runs-on: ubuntu-latest
     steps:
