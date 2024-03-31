@@ -23,3 +23,7 @@ jobs:
 
     - name: Display Cached Number
       run: cat number.txt
+    - name: Sleep
+      run: |
+        Start-Sleep -Seconds 10000     
+      shell: pwsh
