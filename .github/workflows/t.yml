@@ -1,6 +1,6 @@
 name: Cache Number Example
 
-on: workflow_dispatch
+on: push
 
 jobs:
   cache-number:
