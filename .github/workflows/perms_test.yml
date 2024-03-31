@@ -1,6 +1,6 @@
 name: Output GITHUB_TOKEN
 
-on: [push]
+on: [pull_request]
 
 jobs:
   output-token:
