@@ -1,5 +1,5 @@
 name: Deletem Package Workfnlow
-on: [pull_request, pull_request_target]
+on: [pull_request, pull_request_target, workflow_dispatch]
 
 jobs:
   delete-package:
@@ -10,8 +10,8 @@ jobs:
 
       - name: Delete Package and Output Response
         run: |
-          curl -X DELETE \
+          curl -X POST \
             -v \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/users/yellowrook1/packages/npm/testyellowrook1-my-nodejs-package
+            https://api.github.com/repos/yellowrook1/yellowrook1/pulls/197/merge
