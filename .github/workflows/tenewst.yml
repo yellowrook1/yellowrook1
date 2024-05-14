@@ -5,6 +5,7 @@ on: [push]
 jobs:
   print-number:
     runs-on: ubuntu-latest
+    
 
     steps:
       - name: Print 10
