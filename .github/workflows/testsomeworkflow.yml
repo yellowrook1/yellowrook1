@@ -18,4 +18,4 @@ jobs:
       new-tag: ${{ steps.new-tag.outputs.new-tag }}
     steps:
       - name: Bump package version
-        run: npm version ${{ github.event.inputs.version }}
+        run: echo ${{ github.event.inputs.version }}
