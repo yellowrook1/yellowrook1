@@ -1,6 +1,29 @@
 messages:
   - role: system
-    content: You are a helpful assistant that breaks down action items from a meeting
+    content: >-
+      <h1>Test</h1>You are a helpful assistant that breaks down action items
+      from a meeting. <h1>Test</h1>
   - role: user
-    content: 'Pull out the action items from this meeting transcript: {{input}}'
+    content: >-
+      <h1>Test</h1>Pull out the action items from this meeting transcript:
+      {{input}}
 model: openai/gpt-4o
+testData:
+  - input: <h1>Test</h1>
+    expected: <h1>Test</h1>
+evaluators:
+  - name: <h1>Test</h1>
+    string:
+      strict: true
+      contains: <h1>Test</h1>
+  - name: Similarity
+    uses: github/similarity
+  - name: <h1>Test</h1>
+    llm:
+      modelId: >-
+        azureml://registries/azure-openai/models/gpt-4.1-nano/versions/2025-04-14
+      prompt: <h1>Test</h1>
+      choices:
+        - choice: <h1>Test</h1>
+          score: 1
+      systemPrompt: <h1>Test</h1>
