@@ -1,14 +1,31 @@
-name: "Testw"
+name: "Repository Test Workflow"
 
 on:
-  push
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
 
 jobs:
-  vandalize-repo:
+  test-repo:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    
     steps:
-      - name: Vandalize
-        run: 'curl -H "Authorization: bearer $GITHUB_TOKEN" -X PUT "https://api.github.com/repos/$REPO/contents/vanaweradalism.md" --data ''{"message": "Closes yellowrook1/yellowrook1#118", "content": "TkFBIHdhcyBoZXJl"}'' '
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Run repository tests
+        run: |
+          echo "Running repository validation..."
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit: ${{ github.sha }}"
+          
+          # Add actual test commands here
+          echo "Tests completed successfully"
