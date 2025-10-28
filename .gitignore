@@ -1,0 +1,43 @@
+# Optimized .gitignore for better repository performance
+
+# Temporary files
+*.tmp
+*.temp
+*~
+.DS_Store
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+out/
+target/
+
+# Dependencies
+node_modules/
+vendor/
+.vendor/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.vim/
+
+# Logs
+*.log
+logs/
+
+# Cache directories
+.cache/
+.npm/
+.yarn/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Generated files
+*.generated.*
