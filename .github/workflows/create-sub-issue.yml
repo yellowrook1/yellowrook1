@@ -6,6 +6,10 @@ on:
       - copilot/create-sub-issue-for-223
   workflow_dispatch:
 
+permissions:
+  issues: write
+  contents: read
+
 jobs:
   create-sub-issue:
     runs-on: ubuntu-latest
