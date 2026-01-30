@@ -1,9 +1,6 @@
 name: Create Sub-Issue for #223
 
 on:
-  push:
-    branches:
-      - copilot/create-sub-issue-for-223
   workflow_dispatch:
 
 permissions:
