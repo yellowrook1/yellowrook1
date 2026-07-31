@@ -1,0 +1,21 @@
+name: Release and publish
+
+# Inspired by https://github.com/MylesBorins/node-osc/blob/959b9c83972a67390a351d333b23db3972ca7b46/.github/workflows/bump-version.yml and
+#             https://github.com/MylesBorins/node-osc/blob/74b563c83736a04c4a37acbff9d7bb1f01a00f57/.github/workflows/create-release.yml
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Semver descriptor for new version ("major", "minor", or "patch")
+        required: true
+
+jobs:
+  bump-version:
+    name: Bump package version
+    runs-on: ubuntu-latest
+    outputs:
+      new-tag: ${{ steps.new-tag.outputs.new-tag }}
+    steps:
+      - name: Bump package version
+        run: echo ${{ github.event.inputs.version }}
