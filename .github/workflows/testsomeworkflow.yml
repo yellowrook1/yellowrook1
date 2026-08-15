@@ -1,21 +1,59 @@
 name: Release and publish
 
-# Inspired by https://github.com/MylesBorins/node-osc/blob/959b9c83972a67390a351d333b23db3972ca7b46/.github/workflows/bump-version.yml and
-#             https://github.com/MylesBorins/node-osc/blob/74b563c83736a04c4a37acbff9d7bb1f01a00f57/.github/workflows/create-release.yml
+# Optimized workflow for version management
+# Inspired by https://github.com/MylesBorins/node-osc/blob/959b9c83972a67390a351d333b23db3972ca7b46/.github/workflows/bump-version.yml
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: Semver descriptor for new version ("major", "minor", or "patch")
+        description: 'Semver descriptor for new version ("major", "minor", or "patch")'
         required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+permissions:
+  contents: read
 
 jobs:
-  bump-version:
-    name: Bump package version
+  validate-and-prepare:
+    name: Validate input and prepare release
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
-      new-tag: ${{ steps.new-tag.outputs.new-tag }}
+      version-type: ${{ steps.validate.outputs.version-type }}
+      should-proceed: ${{ steps.validate.outputs.should-proceed }}
+    
     steps:
-      - name: Bump package version
-        run: echo ${{ github.event.inputs.version }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Validate version input
+        id: validate
+        run: |
+          VERSION_TYPE="${{ github.event.inputs.version }}"
+          echo "Validating version type: $VERSION_TYPE"
+          
+          if [[ "$VERSION_TYPE" =~ ^(major|minor|patch)$ ]]; then
+            echo "version-type=$VERSION_TYPE" >> $GITHUB_OUTPUT
+            echo "should-proceed=true" >> $GITHUB_OUTPUT
+            echo "✅ Valid version type: $VERSION_TYPE"
+          else
+            echo "should-proceed=false" >> $GITHUB_OUTPUT
+            echo "❌ Invalid version type: $VERSION_TYPE"
+            exit 1
+          fi
+          
+      - name: Prepare release notes
+        if: steps.validate.outputs.should-proceed == 'true'
+        run: |
+          echo "Preparing release for ${{ steps.validate.outputs.version-type }} version bump"
+          echo "This would typically:"
+          echo "- Update version in package files"
+          echo "- Generate changelog"
+          echo "- Create git tag"
+          echo "- Publish release"

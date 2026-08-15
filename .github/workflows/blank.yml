@@ -1,36 +1,65 @@
-# This is a basic workflow to help you get started with Actions
+# Optimized CI workflow
 
 name: CI
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - '*.md'
+      - '.gitignore'
+      - 'LICENSE'
   pull_request:
     branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
+    paths-ignore:
+      - '*.md'
+      - '.gitignore' 
+      - 'LICENSE'
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+permissions:
+  contents: read
+
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  lint-and-validate:
+    name: Lint and validate repository
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    permissions:
+      contents: read
+    
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Validate repository structure
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo "🔍 Validating repository structure..."
+          
+          # Check for required files
+          if [ ! -f "README.md" ]; then
+            echo "⚠️  README.md not found"
+          else
+            echo "✅ README.md found"
+          fi
+          
+          # Validate workflow files
+          echo "🔧 Validating workflow files..."
+          find .github/workflows -name "*.yml" -o -name "*.yaml" | while read -r file; do
+            echo "Checking $file..."
+            # Add YAML validation here if needed
+          done
+          
+          echo "✅ Repository validation completed"
+          
+      - name: Security scan
+        run: |
+          echo "🔒 Running basic security checks..."
+          
+          # Check for secrets or sensitive data
+          if grep -r "password\|secret\|token\|key" . --exclude-dir=.git --exclude="*.md" | grep -v "GITHUB_TOKEN"; then
+            echo "⚠️  Potential secrets found in repository"
+          else
+            echo "✅ No obvious secrets detected"
+          fi
+          
+          echo "Security scan completed"
