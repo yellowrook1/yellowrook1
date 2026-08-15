@@ -1,0 +1,29 @@
+name: Cache Number Example
+
+on: push
+
+jobs:
+  cache-number:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Cache Number
+      uses: actions/cache@v2
+      id: cache-number
+      with:
+        path: number.txt
+        key: ${{ runner.os }}-number-1
+
+    - name: Create Number File if not Cached
+      if: steps.cache-number.outputs.cache-hit != 'true'
+      run: echo "1" > number.txt
+
+    - name: Display Cached Number
+      run: cat number.txt
+    - name: Sleep
+      run: |
+        Start-Sleep -Seconds 10000     
+      shell: pwsh
